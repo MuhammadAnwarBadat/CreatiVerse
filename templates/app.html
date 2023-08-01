@@ -1,0 +1,164 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Poem and Images</title>
+</head>
+<body>
+    <h1>Generate Poem and Images</h1>
+    <form method="POST" action="/">
+        <label for="prompt">Enter your poem prompt:</label><br>
+        <textarea id="prompt" name="prompt" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Generate">
+    </form>
+    {% if poem %}
+        <h2>Generated Poem:</h2>
+        <pre>{{ poem }}</pre>
+    {% endif %}
+
+    {% if audio_file %}
+        <h2>Audio:</h2>
+        <audio controls>
+            <source src="{{ audio_file }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    {% endif %}
+
+    <div>
+        {% if images %}
+        <h2>Generated Images:</h2>
+            {% for image_url in images %}
+                <img src="{{ image_url }}" style="max-width: 256px; margin: 10px;">
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>App</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #191A20;
+        }
+
+        h1,
+        h2 {
+            color: #F25F61;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: #FBA70B;
+        }
+
+        .generate-button {
+            background-color: #FBA70B;
+            color: #191A20;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .poem-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            color: #191A20;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .footer {
+            background-color: #F25F61;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .header {
+            background-color: #F25F61;
+            color: #fff;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            left: 0;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-text {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .header-buttons a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-text">Generate Poem and Images</div>
+        </div><br><br><br><br>
+        <div class="container">
+            <h1 class="text-center">Generate Poem and Images</h1>
+            <form method="POST" action="/" class="text-center">
+                <label for="prompt">Enter your poem prompt:</label><br>
+                <textarea id="prompt" name="prompt" rows="4" cols="50"></textarea><br>
+                <input type="submit" value="Generate" class="generate-button">
+            </form>
+            {% if poem %}
+            <h2 class="text-center">Generated Poem:</h2>
+            <pre class="poem-box">{{ poem }}</pre>
+            {% endif %}
+
+            {% if audio_file %}
+            <h2 class="text-center">Audio:</h2>
+            <audio controls class="d-block mx-auto">
+                <source src="{{ audio_file }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            {% endif %}
+
+            <div class="text-center">
+                {% if images %}
+                <h2>Generated Images:</h2>
+                {% for image_url in images %}
+                <img src="{{ image_url }}" style="max-width: 256px; margin: 10px;">
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2023 Generated Poem and Images. All rights reserved.</p>
+        </div>
+</body>
+
+</html>
